@@ -10,7 +10,7 @@ btn.addEventListener('click', () => {
   console.log(formData.entries());
   
    var request = new XMLHttpRequest();
-   request.open("POST", "http://127.0.0.1:8000/house_price/");
+   request.open("POST", "https://house-price-pred-simplon.herokuapp.com/house_price/");
 //   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
    console.log(request.readyState);
 
