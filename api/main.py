@@ -1,0 +1,61 @@
+import pandas as pd
+from fastapi import FastAPI, Form
+from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+from machine_learning.ml import ML
+
+app = FastAPI()
+
+origins = []
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins = ["*"],
+    allow_credentials = ["*"],
+    allow_methods = ["*"],
+    allow_headers=["*"]
+)
+
+@app.get('/')
+async def get_root():
+    return {'message' : "Bienvenue sur l'API de prédiction de prix de maison"}
+
+@app.post("/house_price/")
+async def house_price(
+    bedrooms: float = Form(...),
+    bathrooms: float = Form(...),
+    sqft_living: int = Form(...),
+    sqft_lot: int = Form(...),
+    floors: float = Form(...),
+    waterfront: int = Form(...),
+    view: int = Form(...),
+    sqft_above: int = Form(...),
+    sqft_basement: int = Form(...),
+):
+
+    house = dict ((('bedrooms',bedrooms),
+        ('bathrooms',bathrooms),
+        ('sqft_living',sqft_living),
+        ('sqft_lot',sqft_lot),
+        ('floors',floors),
+        ('waterfront',waterfront),
+        ('view',view),
+        ('sqft_above',sqft_above),
+        ('sqft_basement', sqft_basement)))
+
+    print("1")
+    X = pd.DataFrame(house, index=[0])
+
+    prediction = ML()
+    pred = prediction.model_predict_test(X)
+    print("2")
+    X= X.values.tolist()
+
+    print('3')
+
+    # resultat = prediction_house(X)
+    print("4")
+    return pred
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
