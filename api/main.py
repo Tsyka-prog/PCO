@@ -6,7 +6,7 @@ from machine_learning.ml import ML
 
 app = FastAPI()
 
-origins = []
+origins = ["house-price-pred-simplon.herokuapp.com","https://house-price-pred-simplon.herokuapp.com/","https://house-price-pred-simplon.herokuapp.com/house_price/","http://127.0.0.1:5500/"]
 
 app.add_middleware(
     CORSMiddleware,
