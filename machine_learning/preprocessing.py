@@ -6,7 +6,7 @@ import numpy as np
 from data import Data
 
 class Preprocessing():
-    def __init_i(self):
+    def __init__(self):
         self.df_house = Data().lecture_df()
 
     def drop_columns(self):
@@ -32,5 +32,5 @@ class Preprocessing():
         self.delete_outliers()
         y = self.df_house["price"]
         X = self.df_house.drop(["price"], axis=1)
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
         return X_train, X_test, y_train, y_test

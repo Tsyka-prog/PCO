@@ -22,7 +22,7 @@ class ML:
             y_pred = fitted_model.predict(self.X_test)
         else:
             y_pred = fitted_model.predict(X)
-        return y_pred, fitted_model
+        return y_pred.tolist()
 
     def model_score(self):
         y_pred, fitted_model = self.model_predict_test()
