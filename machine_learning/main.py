@@ -25,13 +25,13 @@ async def get_root():
 async def house_price(
     bedrooms: float = Form(...),
     bathrooms: float = Form(...),
-    sqft_living: int = Form(...),
-    sqft_lot: int = Form(...),
+    sqft_living: float = Form(...),
+    sqft_lot: float = Form(...),
     floors: float = Form(...),
-    waterfront: int = Form(...),
-    view: int = Form(...),
-    sqft_above: int = Form(...),
-    sqft_basement: int = Form(...),
+    waterfront: float = Form(...),
+    view: float = Form(...),
+    sqft_above: float = Form(...),
+    sqft_basement: float = Form(...),
 ):
 
     house = dict ((('bedrooms',bedrooms),

@@ -1,76 +1,80 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prédiction du prix d'un logement</title>
-    <link rel="icon" type="image/x-icon" href="front/css/media/favicon.ico">
+    <title>House Price</title>
+    <link rel="icon" type="image/x-icon" href="front/css/media/favicon.png">
     <link rel="stylesheet" href="front/css/style.css">
 
 </head>
+
 <body>
     <section>
-    <h1>PREDICTION DU PRIX D'UN LOGEMENT</h1>
-    <p>Bienvenue sur notre simulateur de prédiction du prix de votre logement.</p>
-    <p>Vous êtes propriétaire et souhaitez connaître la valeur sur le marché de votre bien?</p>
-    <p>Vous êtes acheteur et voulez préparer au mieux les négociations pour votre future acquisition?</p>
-    <h2>House Price est la solution!</h2>
-    <p>Grâce à des données régulièrement mises à jour et la puissance de l'Intelligence Artificielle, nous pouvons vous apporter une estimation au plus proche de la réalité du marché.</p>
-    <h2>Lancez_vous, c'est facile et instantané!!</h2>
-    <a href="#Form">Commencer la simulation</a>
-</section>
-<section id="Form">
-    <form id="houseForm" method="POST" class="formulaire" action="" enctype="multipart/form-data">
+        <h1>PREDICTION DU PRIX D'UN LOGEMENT</h1>
+        <p>Bienvenue sur notre simulateur de prédiction du prix de votre logement.</p>
+        <p>Vous êtes propriétaire et souhaitez connaître la valeur sur le marché de votre bien?</p>
+        <p>Vous êtes acheteur et voulez préparer au mieux les négociations pour votre future acquisition?</p>
+        <h2>House Price est la solution!</h2>
+        <p>Grâce à des données régulièrement mises à jour et la puissance de l'Intelligence Artificielle, nous pouvons
+            vous apporter une estimation au plus proche de la réalité du marché.</p>
+        <h2>Lancez-vous, c'est facile et instantané!!</h2>
+        <a href="#Form">Commencer la simulation</a>
+    </section>
+    <section id="Form">
+        <form id="houseForm" method="POST" class="formulaire" action="" enctype="multipart/form-data">
 
-        <label  for="bedrooms">Nombre de chambres</label>
-        <input value="3" type="number" name="bedrooms" id="bedrooms">
+            <label for="bedrooms">Nombre de chambres</label>
+            <input value="3" type="number" name="bedrooms" id="bedrooms">
 
-        <label for="bathrooms">Nombre de salles de bain</label>
-        <input value="1" type="number" name="bathrooms" id="">
+            <label for="bathrooms">Nombre de salles de bain</label>
+            <input value="1" type="number" name="bathrooms" id="">
 
-        <label for="sqft_living">Surface habitable</label>
-        <input value="200" type="number" name="sqft_living" id="">
+            <label for="sqft_living">Surface habitable</label>
+            <input value="200" type="number" name="sqft_living" id="">
 
-        <label for="sqft_lot">Superficie du terrain</label>
-        <input value="300" type="number" name="sqft_lot" id="">
-
-
-        <label for="floors">Nombre d'étages</label>
-        <input value="1" type="number" name="floors" id="">
-
-        <label for="waterfront">Emplacement sur bord de mer?</label>
-        <select  name="waterfront" id="">
-            <option value="">Sélectionnez un choix</option>
-            <option  value="1" selected>Oui</option>
-            <option value="0">Non</option>
-        </select>
-
-        <label for="view">Qualité de la vue</label>
-        <select name="view" id="">
-            <option value="">Sélectionnez un choix</option>
-            <option value="0">Pas de vue</option>
-            <option  value="1" selected>Vue moyenne</option>
-            <option value="2">Bonne Vue</option>
-            <option value="3">Excellente Vue</option>
-        </select>
-
-        <label for="">Superficies</label>
+            <label for="sqft_lot">Superficie du terrain</label>
+            <input value="300" type="number" name="sqft_lot" id="">
 
 
-        <label for="sqft_above">Surface à l'étage</label>
-        <input value="50" type="number" name="sqft_above" id="">
+            <label for="floors">Nombre d'étages</label>
+            <input value="1" type="number" name="floors" id="">
 
-        <label for="sqft_basement">Surface du sous-sol</label>
-        <input  value="100" type="number" name="sqft_basement" id="">
-        
-        <button id="predire" type="button">Obtenir une estimation</button>
+            <label for="waterfront">Emplacement sur bord de mer?</label>
+            <select name="waterfront" id="">
+                <option value="">Sélectionnez un choix</option>
+                <option value="1" selected>Oui</option>
+                <option value="0">Non</option>
+            </select>
 
-    
-    </form>
-    <p id="reponse"></p>
+            <label for="view">Qualité de la vue</label>
+            <select name="view" id="">
+                <option value="">Sélectionnez un choix</option>
+                <option value="0">Pas de vue</option>
+                <option value="1" selected>Vue moyenne</option>
+                <option value="2">Bonne Vue</option>
+                <option value="3">Excellente Vue</option>
+            </select>
+
+            <label for="">Superficies</label>
+
+
+            <label for="sqft_above">Surface à l'étage</label>
+            <input value="50" type="number" name="sqft_above" id="">
+
+            <label for="sqft_basement">Surface du sous-sol</label>
+            <input value="100" type="number" name="sqft_basement" id="">
+
+            <button id="predire" type="button">Obtenir une estimation</button>
+
+
+        </form>
+        <p id="reponse"></p>
     </section>
 
     <script src="front/js/script.js"></script>
 </body>
+
 </html>

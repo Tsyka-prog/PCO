@@ -1,5 +1,6 @@
 from sklearn.metrics import classification_report, plot_confusion_matrix
 from sklearn.model_selection import cross_val_score
+from sklearn.preprocessing import MinMaxScaler
 
 from data import Data
 from preprocessing import Preprocessing
@@ -21,7 +22,15 @@ class ML:
         if X is None:
             y_pred = fitted_model.predict(self.X_test)
         else:
+            # scaler = MinMaxScaler()
+            # scaler.fit(X)
+
+            # X=scaler.transform(X)
+            print(X)
             y_pred = fitted_model.predict(X)
+
+            print(y_pred)
+            print(fitted_model)
         return y_pred.tolist()
 
     def model_score(self):

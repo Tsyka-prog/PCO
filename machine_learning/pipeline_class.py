@@ -12,14 +12,15 @@ class PipelineClass():
     def __init__(self):
         pass
 
-    
     def creation_pipeline(self):
-        numeric_transformer = Pipeline(steps=[('scaler', MinMaxScaler())])
+        # numeric_transformer = Pipeline(steps=[('scaler', MinMaxScaler())])
 
-        preprocessor = ColumnTransformer(transformers=[
-            ('num', numeric_transformer, selector(dtype_include=["int", "float"]))
-        ],remainder='passthrough')
+        # preprocessor = ColumnTransformer(transformers=[
+        #     ('num', numeric_transformer, selector(dtype_include=["int", "float"]))
+        # ],remainder='passthrough')
 
-        reg = Pipeline(steps=[('preprocessor',
-                            preprocessor), ('regressor', LinearRegression())])
+        reg = Pipeline(steps=[
+            # ('preprocessor',
+            #                 preprocessor), 
+            ('regressor', LinearRegression())])
         return reg

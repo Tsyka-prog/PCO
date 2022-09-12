@@ -25,6 +25,10 @@ class Preprocessing():
         drop_line_price = self.df_house[self.df_house['price'] > 1000000].index
         self.df_house.drop(drop_line_price , inplace=True)
         return self.df_house
+    
+    def feet_to_meter(self):
+        self.df_house[['sqft_living','sqft_lot','sqft_above','sqft_basement']]= self.df_house[['sqft_living','sqft_lot','sqft_above','sqft_basement']]/10.764
+        return self.df_house
 
     def select_x_y(self):
         self.drop_columns()
