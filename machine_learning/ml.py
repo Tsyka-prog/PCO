@@ -1,9 +1,9 @@
 from sklearn.metrics import classification_report, plot_confusion_matrix
 from sklearn.model_selection import cross_val_score
 
-from machine_learning.data import Data
-from machine_learning.preprocessing import Preprocessing
-from machine_learning.pipeline_class import PipelineClass
+from data import Data
+from preprocessing import Preprocessing
+from pipeline_class import PipelineClass
 
 class ML:
 

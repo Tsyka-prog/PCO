@@ -2,7 +2,8 @@ import pandas as pd
 from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from machine_learning.ml import ML
+
+from ml import ML
 
 app = FastAPI()
 
@@ -58,4 +59,4 @@ async def house_price(
     return pred
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="localhost", port=8000, reload=True)
