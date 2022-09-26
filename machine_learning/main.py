@@ -3,6 +3,16 @@ from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://3bad9da4b28d45eea807782ec2e661aa@o1421963.ingest.sentry.io/6768230",
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production,
+    traces_sample_rate=1.0,
+)
 from ml import ML
 
 app = FastAPI()
@@ -44,18 +54,10 @@ async def house_price(
         ('sqft_above',sqft_above),
         ('sqft_basement', sqft_basement)))
 
-    print("1")
     X = pd.DataFrame(house, index=[0])
-
     prediction = ML()
     pred = prediction.model_predict_test(X)
-    print("2")
     X= X.values.tolist()
-
-    print('3')
-
-    # resultat = prediction_house(X)
-    print("4")
     return pred
 
 if __name__ == "__main__":
