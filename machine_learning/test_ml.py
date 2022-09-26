@@ -25,5 +25,8 @@ class TestML(TestCase):
         
     def test_if_predict_is_float(self):
         self.assertIsInstance(self.pred[0], float)
+        
+    def test_if_score_greater_than_30_per_cent(self):
+        self.assertGreater(self.prediction.model_score(),0.30)
                      
 main()

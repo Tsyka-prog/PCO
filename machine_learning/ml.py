@@ -26,12 +26,7 @@ class ML:
             y_pred = fitted_model.predict(X)
 
         return y_pred.tolist()
-
-    # def model_score(self):
-    #     y_pred, fitted_model = self.model_predict_test()
-    #     accuracy_score = fitted_model.score(self.X_test, self.y_test)
-    #     class_report = classification_report(self.y_test, y_pred)
-    #     conf_matrix = plot_confusion_matrix(fitted_model, self.X_test, self.y_test).figure_
-    #     score_cross = cross_val_score(fitted_model, self.X_test, self.y_test, cv=5)
-    #     return accuracy_score, class_report, conf_matrix, score_cross
     
+    def model_score(self):
+        fitted_model = self.model_fitting()
+        return fitted_model.score(self.X_test, self.y_test)
