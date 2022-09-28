@@ -31,6 +31,10 @@ app.add_middleware(
 async def get_root():
     return {'message' : "Bienvenue sur l'API de prédiction de prix de maison"}
 
+@app.get('/metrics')
+async def get_metrics():
+    pass
+
 @app.post("/house_price/")
 async def house_price(
     bedrooms: float = Form(...),
