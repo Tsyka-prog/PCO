@@ -17,7 +17,8 @@ from ml import ML
 
 app = FastAPI()
 
-origins = ["house-price-pred-simplon.herokuapp.com","https://house-price-pred-simplon.herokuapp.com/","https://house-price-pred-simplon.herokuapp.com/house_price/","http://127.0.0.1:5500/"]
+origins = ["http://127.0.0.1:5500/",
+           "https://tsyka-prog.github.io/PCO/"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -31,9 +32,9 @@ app.add_middleware(
 async def get_root():
     return {'message' : "Bienvenue sur l'API de prédiction de prix de maison"}
 
-@app.get('/metrics')
-async def get_metrics():
-    pass
+# @app.get('/metrics')
+# async def get_metrics():
+#     pass
 
 @app.post("/house_price/")
 async def house_price(
