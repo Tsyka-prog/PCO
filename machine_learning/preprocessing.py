@@ -45,6 +45,7 @@ class Preprocessing():
         self.drop_columns()
         self.delete_zero_price()
         self.delete_outliers()
+        self.feet_to_meter()
         y = self.df_house["price"]
         X = self.df_house[["bedrooms","bathrooms","sqft_living","floors","waterfront","view","sqft_basement"]]
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
