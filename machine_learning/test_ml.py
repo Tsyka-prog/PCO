@@ -10,11 +10,9 @@ class TestML(TestCase):
     house = dict ((('bedrooms',1),
         ('bathrooms',1),
         ('sqft_living',200),
-        ('sqft_lot',300),
         ('floors',1),
         ('waterfront',0),
         ('view',1),
-        ('sqft_above',0),
         ('sqft_basement', 0)))
     X = pd.DataFrame(house, index=[0])
     pred = prediction.model_predict_test(X)

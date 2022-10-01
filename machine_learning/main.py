@@ -41,22 +41,18 @@ async def house_price(
     bedrooms: float = Form(...),
     bathrooms: float = Form(...),
     sqft_living: float = Form(...),
-    sqft_lot: float = Form(...),
     floors: float = Form(...),
     waterfront: float = Form(...),
     view: float = Form(...),
-    sqft_above: float = Form(...),
     sqft_basement: float = Form(...),
 ):
 
     house = dict ((('bedrooms',bedrooms),
         ('bathrooms',bathrooms),
         ('sqft_living',sqft_living),
-        ('sqft_lot',sqft_lot),
         ('floors',floors),
         ('waterfront',waterfront),
         ('view',view),
-        ('sqft_above',sqft_above),
         ('sqft_basement', sqft_basement)))
 
     X = pd.DataFrame(house, index=[0])

@@ -22,12 +22,23 @@ class Preprocessing():
     def delete_outliers(self):
         drop_line_sqft = self.df_house[self.df_house['sqft_basement'] > 4000].index
         self.df_house.drop(drop_line_sqft , inplace=True)
+        
         drop_line_price = self.df_house[self.df_house['price'] > 1000000].index
         self.df_house.drop(drop_line_price , inplace=True)
+        
+        drop_line_sqft = self.df_house[self.df_house['sqft_living'] > 8000].index
+        self.df_house.drop(drop_line_sqft , inplace=True)
+
+        drop_line_sqft = self.df_house[self.df_house['sqft_lot'] > 60000].index
+        self.df_house.drop(drop_line_sqft , inplace=True)
+
+        drop_line_sqft = self.df_house[self.df_house['bathrooms'] > 7].index
+        self.df_house.drop(drop_line_sqft , inplace=True)
+
         return self.df_house
     
     def feet_to_meter(self):
-        self.df_house[['sqft_living','sqft_lot','sqft_above','sqft_basement']]= self.df_house[['sqft_living','sqft_lot','sqft_above','sqft_basement']]/10.764
+        self.df_house[['sqft_living','sqft_basement']]= self.df_house[['sqft_living','sqft_basement']]/10.764
         return self.df_house
 
     def select_x_y(self):
@@ -35,6 +46,6 @@ class Preprocessing():
         self.delete_zero_price()
         self.delete_outliers()
         y = self.df_house["price"]
-        X = self.df_house.drop(["price"], axis=1)
+        X = self.df_house[["bedrooms","bathrooms","sqft_living","floors","waterfront","view","sqft_basement"]]
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
         return X_train, X_test, y_train, y_test
