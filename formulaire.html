@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price - Formulaire</title>
+    <link rel="stylesheet" href="front/css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h3 id="logo">House</h3>
+            <img src="front/css/media/favicon.png" href="#" alt="logo accueil" class="icone">
+        </nav>
+        </header>
+        <div class="background"></div>
+    <h1>PREDICTION DU PRIX D'UN LOGEMENT</h1>
+
+    <section id="Form">
+
+        <form id="houseForm" method="POST" class="formulaire slider-container" action="" enctype="multipart/form-data">
+            <div class="slide slide-1 active">
+                <label for="bedrooms">Nombre de chambres</label>
+                <input value="" type="number" name="bedrooms" id="bedrooms">
+                <a href="#input2" class="next direction-btn">suivant</a>
+            </div>
+            <div id="input2" class="card slide slide-2">
+                <label for="bathrooms">Nombre de salles de bain</label>
+                <input  value="" type="number" name="bathrooms" id="">
+                <a href="#input3" class="next direction-btn">suivant</a>
+            </div>
+            <div id="input3" class="card slide slide-3">
+                <label for="sqft_living">Surface habitable</label>
+                <input value="" type="number" name="sqft_living" id="">
+                <a href="#input4" class="next direction-btn">suivant</a>
+            </div>
+            <div id="input4" class="card slide slide-4">
+                <label for="floors">Nombre d'étages</label>
+                <input value="" type="number" name="floors" id="">
+                <a href="#input5" class="next direction-btn">suivant</a>
+            </div>
+            <div id="input5" class="card slide slide-5">
+                <label for="waterfront">Emplacement sur bord de mer?</label>
+                <select name="waterfront" id="">
+                    <option value="">Sélectionnez un choix</option>
+                    <option value="1" selected>Oui</option>
+                    <option value="0">Non</option>
+                </select>
+                <a href="#input6" class="next direction-btn">suivant</a>
+            </div>
+            <div id="input6" class="card slide slide-6">
+                <label for="view">Qualité de la vue</label>
+                <select name="view" id="">
+                    <option value="">Sélectionnez un choix</option>
+                    <option value="0">Pas de vue</option>
+                    <option value="1" selected>Vue moyenne</option>
+                    <option value="2">Bonne Vue</option>
+                    <option value="3">Excellente Vue</option>
+                </select>
+                <a href="#input7" class="next direction-btn">suivant</a>
+            </div>
+
+            <div id="input7" class="card slide slide-7">
+                <label for="sqft_basement">Surface du sous-sol</label>
+                <input value="" type="number" name="sqft_basement" id="">
+
+
+
+                <button id="predire" type="button">Obtenir une estimation</button>
+
+            </div>
+        </form>
+        <p id="reponse"></p>
+    </section>
+
+    <script src="front/js/formulaire.js"></script>
+</body>
+
+</html>

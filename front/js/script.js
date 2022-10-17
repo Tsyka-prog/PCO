@@ -1,39 +1,20 @@
 
-const btn = document.getElementById('predire')
 
-btn.addEventListener('click', () => {
-  // Récupération des données du formulaire
- 
-  var myForm = document.getElementById('houseForm')
-
-  var formData = new FormData(myForm)
-  console.log(formData.entries());
-  
-   var request = new XMLHttpRequest();
-   // request.open("POST", "https://house-price-pred-simplon.herokuapp.com/house_price/");
-   request.open("POST", "http://127.0.0.1:8000/house_price/");
-
-//   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-   console.log(request.readyState);
-
-   request.onreadystatechange = function () {
-//     console.log('histoire de voir');
-     console.log(request.readyState);
-// // attente de réponse de l'api puis choix de l'action en fonction de la réponse
-     if (request.readyState === request.DONE && request.status === 200) {
-     var resultHouse = JSON.parse(request.responseText)
-     console.log('toto');
-     console.log(resultHouse);
-     var pReponse = document.getElementById('reponse')
-     pReponse.innerHTML = "Votre bien est estimé à: " + Math.round(resultHouse * 100)/ 100 + " $";
-   }
-
-}
+// Animation accueil
+const banniere = document.querySelector('.banniere')
+const slider = document.querySelector('.background')
+const logo = document.querySelector('#logo')
+const titre = document.querySelector('.titre')
+const partie = document.querySelectorAll('.partie')
 
 
- request.send(formData);
-console.log('fini');
-
-});
+gsap.fromTo(banniere,1, {height: "0%"}, {height:"80%",ease: Power2.easeInOut})
+gsap.fromTo(banniere,1.2, {width: "100%"}, {width:"80%",ease: Power2.easeInOut})
+gsap.fromTo(slider, 1.2, {x: "-100%"}, {x: '0%', ease: Power2.easeInOut}, "-=1.2")
+gsap.from(logo, 1, {x:"-100%", ease: Back.easeOut.config(1.7)}, "-=2")
+gsap.from(partie, 1, {opacity:0, ease: "power1", stagger:{
+  each: 0.14,
+  from: "center"
+}});
 
 
