@@ -16,7 +16,9 @@ btn.addEventListener('click', () => {
     if (request.readyState === request.DONE && request.status === 200) {
       var resultHouse = JSON.parse(request.responseText)
       var pReponse = document.getElementById('reponse')
+      var refresh = document.getElementById('refresh')
       pReponse.innerHTML = "Votre bien est estimé à: " + Math.round(resultHouse * 100) / 100 + " $";
+      refresh.innerHTML = "Refaire une simulation"
     }
 
   }
